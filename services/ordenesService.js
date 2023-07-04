@@ -10,7 +10,7 @@ const leerTodo = (nombreArchivo) => {
     
     datos.forEach((element,indice) => {
         if((indice + 1) % 7 === 0){
-            const orden = new Orden(datos[indice-7],datos[indice-6],datos[indice-5],datos[indice-4],datos[indice-3],datos[indice-1],datos[indice]);
+            const orden = new Orden(datos[indice-7],datos[indice-6],datos[indice-5],datos[indice-4],datos[indice-3,datos[indice-2],datos[indice-1],datos[indice]);
             arregloOrdenes.push(orden);
         }        
     });

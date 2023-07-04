@@ -1,5 +1,6 @@
 const express = require('express');
 const clienteService = require('./services/clientesService');
+const empleadoService = require('./services/empleadoService');
 
 const { response } = require('express');
 const app = express();
@@ -18,8 +19,9 @@ app.set('view engine', 'hbs');
  });
 
  app.get('/empleados' , (req,res = response) => {
-     res.render('Hola Mundo Empleados',{
-        titulo: 'Empleados'
+     res.render('empleados',{
+        titulo: 'Empleados',
+        arregloEmpleados: empleadoService.leerTodo('employees')
      });
  });
 

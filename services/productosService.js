@@ -10,7 +10,7 @@ const leerTodo = (nombreArchivo) => {
     
     datos.forEach((element,indice) => {
         if((indice + 1) % 5 === 0){
-            const producto = new Producto(datos[indice-4],datos[indice-3],datos[indice-1],datos[indice]);
+            const producto = new Producto(datos[indice-3],datos[indice-2],datos[indice-1],datos[indice]);
             arregloProductos.push(producto);
         }        
     });
