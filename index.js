@@ -1,4 +1,5 @@
 const express = require('express');
+const hbs = require('hbs');
 const clienteService = require('./services/clientesService');
 const empleadoService = require('./services/empleadoService');
 
@@ -10,6 +11,7 @@ const app = express();
 
 //Handle Bars
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials', function(err){});
 
  app.get('/clientes', (req,res = response) => {
          res.render('clientes',{
