@@ -2,6 +2,9 @@ const express = require('express');
 const hbs = require('hbs');
 const clienteService = require('./services/clientesService');
 const empleadoService = require('./services/empleadoService');
+const detalleDeOrdenService = require('./services/detalleDeOrdenService');
+const ordenesService = require('./services/ordenesService');
+const productosService = require('./services/productosService');
 
 const { response } = require('express');
 const app = express();
@@ -11,7 +14,7 @@ const app = express();
 
 //Handle Bars
 app.set('view engine', 'hbs');
-hbs.registerPartials(__dirname + '/views/partials', function(err){});
+hbs.registerPartials(__dirname + '/views/partials');
 
  app.get('/clientes', (req,res = response) => {
          res.render('clientes',{
@@ -30,19 +33,22 @@ hbs.registerPartials(__dirname + '/views/partials', function(err){});
 
 app.get('/detalleDeOrden' , (req,res = response) => {
     res.render('detalleDeOrden',{
-        titulo: 'Detalle de Orden'
+        titulo: 'Detalle de Orden',
+        arregloDetalles:detalleDeOrdenService.leerTodo('orderDetails')
     });
 });
 
 app.get('/ordenes' , (req,res = response) => {
     res.render('ordenes',{
-        titulo: 'Ordenes'
+        titulo: 'Ordenes',
+        arregloOrdenes: ordenesService.leerTodo('orders')
     });
 });
 
 app.get('/productos' , (req,res = response) => {
-    res.render('Hola Mundo Productos',{
-        titulo: 'Productos'
+    res.render('productos',{
+        titulo: 'Productos',
+        arregloProductos: productosService.leerTodo('products')
     });
 });
 

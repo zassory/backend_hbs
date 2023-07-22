@@ -1,42 +1,42 @@
 class Producto{
 
-    constructor(productoId,productoNombre,precioUnitario,unidadesEnStock,discontinuado){
+    constructor(productoId,productoNombre,precioUnitario,unidadesEnStock,descontinuado){
         this._productoId = productoId;
         this._productoNombre = productoNombre;
         this._precioUnitario = precioUnitario;
         this._unidadesEnStock = unidadesEnStock;
-        this._discontinuado = discontinuado;
+        this._descontinuado = descontinuado;
     }
 
     get productoId(){
-        this._productoId;
+        return this._productoId;
     }
     set productoId(productoId){
         this._productoId = productoId;
     }
     get productoNombre(){
-        this._productoNombre;
+        return this._productoNombre;
     }
     set productoNombre(productoNombre){
         this._productoNombre = productoNombre;
     }
     get precioUnitario(){
-        this._precioUnitario;
+        return this._precioUnitario;
     }
     set precioUnitario(precioUnitario){
         this._precioUnitario = precioUnitario;
     }
     get unidadesEnStock(){
-        this._unidadesEnStock;
+        return this._unidadesEnStock;
     }
     set unidadesEnStock(unidadesEnStock){
         this._unidadesEnStock = unidadesEnStock;
     }
-    get discontinuado(){
-        this._discontinuado;
+    get descontinuado(){
+        return this._descontinuado;
     }
-    set discontinuado(discontinuado){
-        this._discontinuado = discontinuado;
+    set descontinuado(descontinuado){
+        this._descontinuado = descontinuado;
     }
 }
 

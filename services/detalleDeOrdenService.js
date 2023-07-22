@@ -10,11 +10,10 @@ const leerTodo = (nombreArchivo) => {
     
     datos.forEach((element,indice) => {
         if((indice + 1) % 5 === 0){
-            const detalleDeOrden = new DetalleDeOrden(datos[indice-4],datos[indice-3],datos[indice-1],datos[indice]);
+            const detalleDeOrden = new DetalleDeOrden(datos[indice-4],datos[indice-3],datos[indice-2],datos[indice-1],datos[indice]);
             arregloDetalles.push(detalleDeOrden);
         }        
-    });
-
+    });    
     return arregloDetalles;
 }
 
