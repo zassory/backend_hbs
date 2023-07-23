@@ -1,6 +1,10 @@
 const express = require('express');
 const hbs = require('hbs');
-const clienteService = require('./services/clientesService');
+
+//Modelos
+const Cliente = require('./models/clientes');
+
+const { leerTodo , insertar } = require('./services/clientesService');
 const empleadoService = require('./services/empleadoService');
 const detalleDeOrdenService = require('./services/detalleDeOrdenService');
 const ordenesService = require('./services/ordenesService');
@@ -19,8 +23,26 @@ hbs.registerPartials(__dirname + '/views/partials');
  app.get('/clientes', (req,res = response) => {
          res.render('clientes',{
             titulo: 'Clientes',
-            arregloClientes: clienteService.leerTodo('customers')
+            arregloClientes: leerTodo('customers')
          });
+ });
+
+ app.get('/formularioInsertarCliente', (req,res) => {
+    res.render('formularioCliente',{
+        titulo: 'Clientes'
+    });
+ });
+
+ app.get('/insertarCliente',(req,res) => {
+    const identificador = req.query.txtIdentificador;
+    const nombreDeCompania = req.query.txtNombreDeCompania;
+    const nombreDeContacto = req.query.txtNombreDeContacto;
+    const cliente = new Cliente(identificador,nombreDeCompania,nombreDeContacto);
+    insertar(cliente);
+    res.render('clientes',{
+        titulo: 'Clientes',
+        arregloClientes:leerTodo('customers')
+    });
  });
 
  app.get('/empleados' , (req,res = response) => {
